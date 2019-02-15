@@ -107,3 +107,5 @@ venv.bak/
 .DS_Store
 .vscode
 /finflux
+src/ClubOffice/loanpart/migrations
+

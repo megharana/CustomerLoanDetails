@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('search/', include('loanpart.urls', namespace='Search-member')),
+    path('search/', include('loanpart.api.urls', namespace='Search-member')),
 ]
