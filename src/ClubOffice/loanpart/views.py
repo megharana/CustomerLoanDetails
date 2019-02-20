@@ -15,7 +15,7 @@ db_conn = MySQLdb.connect(
 
 # Create your views here.
 def showCustomerName(request):
-    sql_select_Query = "select emp_title from ClubOffice.Customer_LoanDetails where member_id = '1311748' "
+    sql_select_Query = "select emp_title from ClubOffice.Cust_LoanDetails where member_id = '1311748' "
 
     cursor = db_conn.cursor()
 

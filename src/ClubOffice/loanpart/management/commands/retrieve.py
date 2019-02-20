@@ -1,7 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
-from loanpart.models import LoanPart
+from loanpart.models import Cust_LoanDetails
 import csv
-from decimal import Decimal
+
+# from float import float
 
 
 class Command(BaseCommand):
@@ -11,24 +12,24 @@ class Command(BaseCommand):
         pass
 
     def handle(self, *args, **options):
-        with open('/Users/megharana/Downloads/loan_part_0009b606f.csv'
+        with open('/Users/megharana/Downloads/loan_part_0009b606f1.csv'
                   ) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             count_own = 0
             for row in csv_reader:
                 if count_own > 0:
-                    entry = LoanPart(
+                    entry = Cust_LoanDetails(
                         mem_id=row[0],
                         loan_amnt=int(row[1]),
-                        funded_amnt_inv=int(row[2]),
+                        funded_amnt_inv=(row[2]),
                         term=row[3],
-                        int_rate=Decimal(row[4]),
-                        installment=row[5],
+                        int_rate=float(row[4]),
+                        installment=float(row[5]),
                         grade=row[6],
                         emp_title=row[7],
                         emp_length=row[8],
                         home_ownership=row[9],
-                        annual_inc=row[10],
+                        annual_inc=float(row[10]),
                         verification_status=row[11],
                         issue_d=row[12],
                         loan_status=row[13],
@@ -37,9 +38,10 @@ class Command(BaseCommand):
                         title=row[16],
                         addr_state=row[17],
                         last_pymnt_d=row[18],
-                        last_pymnt_amnt=row[19])
+                        last_pymnt_amnt=float(row[19]))
                     entry.save()
                 count_own += 1
+                print(count_own)
             print(count_own)
 
 

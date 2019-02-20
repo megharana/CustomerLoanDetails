@@ -2,30 +2,56 @@ from django.db import models
 from django.conf import settings
 
 
-class LoanPart(models.Model):
-    mem_id = models.CharField(max_length=10, primary_key=True)
-    loan_amnt = models.IntegerField()
-    funded_amnt_inv = models.IntegerField()
-    term = models.CharField(max_length=20)
-    int_rate = models.DecimalField(max_digits=50, decimal_places=5, default="")
-    installment = models.DecimalField(
-        max_digits=50, decimal_places=3, default="")
-    grade = models.CharField(max_length=1)
-    emp_title = models.CharField(max_length=100, null=True, blank=True)
-    emp_length = models.CharField(max_length=120)
-    home_ownership = models.CharField(max_length=30)
-    annual_inc = models.models.DecimalField(
-        max_digits=50, decimal_places=3, default="")
-    verification_status = models.CharField(max_length=20)
-    issue_d = models.CharField(max_length=20)
-    loan_status = models.CharField(max_length=20)
-    desc = models.CharField(max_length=100, null=True, blank=True)
-    purpose = models.CharField(max_length=20)
-    title = models.CharField(max_length=20)
-    addr_state = models.CharField(max_length=20)
-    last_pymnt_d = models.CharField(max_length=20, null=True, blank=True)
-    last_pymnt_amnt = models..DecimalField(
-        max_digits=50, decimal_places=3, default="")
+class Cust_LoanDetails(models.Model):
+
+    mem_id = models.CharField(max_length=10)
+    loan_amnt = models.IntegerField(blank=True, null=True)
+    funded_amnt_inv = models.DecimalField(max_digits=19, decimal_places=10)
+    term = models.TextField(blank=True, null=True)
+    int_rate = models.FloatField(blank=True, null=True)
+    installment = models.FloatField(blank=True, null=True)
+    grade = models.TextField(blank=True, null=True)
+    emp_title = models.TextField(blank=True, null=True)
+    emp_length = models.TextField(blank=True, null=True)
+    home_ownership = models.TextField(blank=True, null=True)
+    annual_inc = models.IntegerField(blank=True, null=True)
+    verification_status = models.TextField(blank=True, null=True)
+    issue_d = models.TextField(blank=True, null=True)
+    loan_status = models.TextField(blank=True, null=True)
+    desc = models.TextField(max_length=4000, blank=True, null=True)
+    purpose = models.TextField(blank=True, null=True)
+    title = models.TextField(blank=True, null=True)
+    addr_state = models.TextField(blank=True, null=True)
+    last_pymnt_d = models.TextField(blank=True, null=True)
+    last_pymnt_amnt = models.FloatField(blank=True, null=True)
+
+    # try:
+    #     mem_id = models.CharField(max_length=10, primary_key=True)
+    #     loan_amnt = models.IntegerField(null=True)
+    #     funded_amnt_inv = models.IntegerField(null=True)
+    #     term = models.CharField(max_length=20)
+    #     int_rate = models.DecimalField(
+    #         max_digits=50, decimal_places=3, default=0.0)
+    #     installment = models.DecimalField(
+    #         max_digits=50, decimal_places=3, default=0.0)
+    #     grade = models.CharField(max_length=1, null=True)
+    #     emp_title = models.CharField(max_length=100, null=True, blank=True)
+    #     emp_length = models.CharField(max_length=120, null=True)
+    #     home_ownership = models.CharField(max_length=30, null=True)
+    #     annual_inc = models.DecimalField(
+    #         max_digits=50, decimal_places=3, default=0.0)
+    #     verification_status = models.CharField(max_length=20, null=True)
+    #     issue_d = models.CharField(max_length=20, null=True)
+    #     loan_status = models.CharField(max_length=20, null=True)
+    #     desc = models.CharField(max_length=4000, null=True, blank=True)
+    #     purpose = models.CharField(max_length=20, null=True)
+    #     title = models.CharField(max_length=20, null=True)
+    #     addr_state = models.CharField(max_length=20, null=True)
+    #     last_pymnt_d = models.CharField(max_length=20, null=True, blank=True)
+    #     last_pymnt_amnt = models.DecimalField(
+    #         max_digits=50, decimal_places=3, default=0.0)
+    # except ValidationError:
+    #     print("Excxeption handled")
 
 
 # class LoanPart_MORTGAGE(models.Model):
