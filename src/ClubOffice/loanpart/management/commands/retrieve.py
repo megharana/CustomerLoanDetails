@@ -12,8 +12,8 @@ class Command(BaseCommand):
         pass
 
     def handle(self, *args, **options):
-        with open('/Users/megharana/Downloads/loan_part_0009b606f1.csv'
-                  ) as csv_file:
+        with open('/Users/megharana/Downloads/loan_part_0009b606f.csv',
+                  'r') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             count_own = 0
             for row in csv_reader:
